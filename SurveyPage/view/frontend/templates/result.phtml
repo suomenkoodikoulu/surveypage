@@ -1,5 +1,5 @@
 <?php /** @var Survey\SurveyPage\Block\AnswerTemplate $block */ ?>
 <?php foreach($block->getAnswers() as $answer): ?>
     <?php /** @var Survey\SurveyPage\Model\Answer */ ?>
-    <p><?php echo $answer->getMessage(); ?></p>
+    <p data-mage-init='{"survey_results": {"message" : "<?php echo $answer->getMessage(); ?>"}}'></p>
 <?php endforeach; ?>

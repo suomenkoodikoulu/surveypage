@@ -23,12 +23,11 @@ class Result extends \Magento\Framework\App\Action\Action
     public function execute()
     {
         $post = $this->getRequest()->getPost();
-        if ($post) {
+        if ($post && isset($post['message'])) {
             $message = $post['message'];
             $model = $this->_objectManager->create('Survey\SurveyPage\Model\Answer');
             $model->setMessage($message);
             $model->save();
-            $this->messageManager->addSuccessMessage('Answer sent!');
         }
         $resultPage = $this->_resultPageFactory->create();
         return $resultPage;
