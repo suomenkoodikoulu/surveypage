@@ -7,10 +7,12 @@ use Magento\Framework\App\Action\Context;
 class Result extends \Magento\Framework\App\Action\Action
 {
     protected $_resultPageFactory;
+    protected $_objectManager;
  
-    public function __construct(Context $context, \Magento\Framework\View\Result\PageFactory $resultPageFactory)
+    public function __construct(Context $context, \Magento\Framework\View\Result\PageFactory $resultPageFactory, \Magento\Framework\ObjectManagerInterface $objectManager)
     {
         $this->_resultPageFactory = $resultPageFactory;
+        $this->_objectManager = $objectManager;
         parent::__construct($context);
     }
  
@@ -19,6 +21,9 @@ class Result extends \Magento\Framework\App\Action\Action
         $post = $this->getRequest()->getPost();
         if ($post) {
             $message = $post['message'];
+            $model = $this->_objectManager->create('Survey\SurveyPage\Model\Answer');
+            $model->setMessage($message);
+            $model->save();
             $this->messageManager->addSuccessMessage('Answer sent!');
         }
         $resultPage = $this->_resultPageFactory->create();

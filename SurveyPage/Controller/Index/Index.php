@@ -3,7 +3,7 @@
 namespace Survey\SurveyPage\Controller\Index;
 
 use Magento\Framework\App\Action\Context;
- 
+
 class Index extends \Magento\Framework\App\Action\Action
 {
     protected $_resultPageFactory;
