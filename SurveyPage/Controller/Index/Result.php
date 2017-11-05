@@ -3,13 +3,17 @@
 namespace Survey\SurveyPage\Controller\Index;
 
 use Magento\Framework\App\Action\Context;
+use \Magento\Framework\View\Result\PageFactory;
+use \Magento\Framework\ObjectManagerInterface;
  
 class Result extends \Magento\Framework\App\Action\Action
 {
     protected $_resultPageFactory;
     protected $_objectManager;
  
-    public function __construct(Context $context, \Magento\Framework\View\Result\PageFactory $resultPageFactory, \Magento\Framework\ObjectManagerInterface $objectManager)
+    public function __construct(Context $context,
+                                PageFactory $resultPageFactory,
+                                ObjectManagerInterface $objectManager)
     {
         $this->_resultPageFactory = $resultPageFactory;
         $this->_objectManager = $objectManager;

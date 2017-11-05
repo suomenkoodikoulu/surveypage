@@ -5,7 +5,7 @@
     </head>
     <body>
         <referenceContainer name="content">
-            <block name="form" class="Magento\Framework\View\Element\Template" template="Survey_SurveyPage::result.phtml"/>
+            <block name="results" class="Survey\SurveyPage\Block\AnswerTemplate" template="Survey_SurveyPage::result.phtml"/>
         </referenceContainer>
     </body>
 </page>
